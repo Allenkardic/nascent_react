@@ -6,7 +6,7 @@ import { colors } from '../../utils';
 import { Container, InputContent, FormInputContainer } from './style';
 export interface InputIProps {
   error?: string;
-  type: 'email' | 'text';
+  type: 'email' | 'text' | 'tel';
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label?: string;
   placeholder?: string;
