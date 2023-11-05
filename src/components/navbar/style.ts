@@ -6,7 +6,6 @@ export const Container = styled.div`
   display: flex;
   display: webkit-flex;
   flex-direction: column;
-  // justify-content: space-betwseen;
   justify-content: center;
   align-items: center;
   height: 100px;

@@ -33,8 +33,8 @@ export const PageContainer = styledComponents.div<StyleProps>`
 
   @media only screen and (min-width: 768px) {
     /* For desktop: */
-    width: 34vw;
-    min-width: 500px;
+    // width: 34vw;
+    // min-width: 500px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -48,14 +48,14 @@ export const PageContent = styledComponents.div<StyleProps>`
 
   @media only screen and (min-width: 600px) {
     /* For tablets: */
-    padding-left: ${({ secondaryView }) => (secondaryView ? '0px' : spacing.large)};
-    padding-right: ${({ secondaryView }) => (secondaryView ? '0px' : spacing.large)};
+    // padding-left: ${({ secondaryView }) => (secondaryView ? '0px' : spacing.large)};
+    // padding-right: ${({ secondaryView }) => (secondaryView ? '0px' : spacing.large)};
   }
 
   @media only screen and (min-width: 768px) {
     /* For desktop: */
-    padding-left: ${({ secondaryView }) => (secondaryView ? '0px' : spacing.large)};
-    padding-right: ${({ secondaryView }) => (secondaryView ? '0px' : spacing.large)};
+    // padding-left: ${({ secondaryView }) => (secondaryView ? '0px' : spacing.large)};
+    // padding-right: ${({ secondaryView }) => (secondaryView ? '0px' : spacing.large)};
   }
 `;
 

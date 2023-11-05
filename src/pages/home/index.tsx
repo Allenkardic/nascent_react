@@ -6,23 +6,22 @@ import { AppContainer } from '../../atoms';
 import { Button, Input } from '../../components';
 import { HA } from '../../styles';
 import { spacing, routesPath, colors } from '../../utils';
-
-const { HOME } = routesPath;
+const { POKEMON } = routesPath;
 
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const processFlowData = [
   {
-    text: 'Amount',
+    text: 'User details',
     isActive: true,
   },
   {
-    text: 'Recipient',
+    text: 'Pokemon',
     isActive: false,
   },
   {
-    text: 'Payment',
+    text: 'Review',
     isActive: false,
   },
 ];
@@ -57,7 +56,7 @@ function Home() {
             };
 
             console.log(payload, 'payload');
-
+            navigate(POKEMON);
             setSubmitting(false);
           }}>
           {formikProps => {
@@ -105,8 +104,6 @@ function Home() {
                       label="Address *"
                       placeholder=""
                     />
-
-                    <HA color={colors.red}>HA</HA>
 
                     <Button type="submit" text="Continue" disabled={false} />
                   </div>
