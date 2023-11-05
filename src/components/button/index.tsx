@@ -36,7 +36,7 @@ function Button({
       btnHt={height}
       secondary={secondary}
       marginBottom={marginBottom}>
-      <HA fSize="14px" ta="center" fw="700" color={secondary ? colors.primary : textColor ? textColor : colors.primary}>
+      <HA fSize="14px" ta="center" fw="700" color={secondary ? colors.primary : textColor ? textColor : colors.white}>
         {text}
       </HA>
     </Container>

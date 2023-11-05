@@ -21,15 +21,20 @@ function NotFound() {
         <ImgContainer>
           <NotFoundImg />
         </ImgContainer>
-        {/* <H4 fw7 center>
+        <H4 fw="700" ta="center">
           No page found
         </H4>
-        <H5 center fw5 color={colors.grey40} style={{ marginTop: spacing.xxsmall, marginBottom: spacing.mini }}>
+        <H5
+          fw="500"
+          color={colors.grey40}
+          ta="center"
+          style={{ marginTop: spacing.xxsmall, marginBottom: spacing.mini }}>
           This page could not be found. Go back to the
         </H5>
-        <H5 center fw5 color={colors.grey40} style={{ marginBottom: spacing.xsmall }}>
+
+        <H5 fw="500" color={colors.grey40} ta="center" style={{ marginBottom: spacing.small }}>
           home page
-        </H5> */}
+        </H5>
         <Button onClick={onSubmit} text="Go back home" disabled={false} />
       </Container>
     </PageContainer>
