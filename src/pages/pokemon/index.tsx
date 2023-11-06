@@ -27,8 +27,9 @@ const processFlowData = [
   },
 ];
 
-const { POKEMON } = routesPath;
+const { REVIEWPOKEMON } = routesPath;
 function Pokemon() {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const [page, setPage] = useState(0);
@@ -124,7 +125,7 @@ function Pokemon() {
 
         <BtnContent>
           <Button
-            onClick={() => console.log('hello')}
+            onClick={() => navigate(REVIEWPOKEMON)}
             text="Continue"
             disabled={selectedPokemon?.hasOwnProperty('text') ? false : true}
           />
