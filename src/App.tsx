@@ -1,5 +1,8 @@
 import isPropValid from '@emotion/is-prop-valid';
 import { Provider } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// eslint-disable-next-line import/order
 import { BrowserRouter } from 'react-router-dom';
 import { StyleSheetManager } from 'styled-components';
 
@@ -16,6 +19,7 @@ function App() {
         <Provider store={store}>
           <BrowserRouter>
             <AppRoute />
+            <ToastContainer />
           </BrowserRouter>
         </Provider>
       </StyleSheetManager>
