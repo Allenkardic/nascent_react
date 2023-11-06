@@ -1,10 +1,27 @@
+import { useState, useLayoutEffect } from 'react';
+
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import { Review, AppContainer } from '../../atoms';
+import { ReviewDataIProps } from '../../atoms/review';
 import { useAppDispatch, useAppSelector } from '../../services/redux-hooks';
 import { routesPath, showMessage } from '../../utils';
-
 const { HOME } = routesPath;
+
+const processFlowData = [
+  {
+    text: 'User details',
+    isActive: true,
+  },
+  {
+    text: 'Pokemon',
+    isActive: true,
+  },
+  {
+    text: 'Review',
+    isActive: true,
+  },
+];
 
 function ReviewPokemon() {
   const dispatch = useAppDispatch();
@@ -12,64 +29,50 @@ function ReviewPokemon() {
 
   const location = useLocation();
 
+  const [data, setData] = useState<ReviewDataIProps[]>([]);
   const savedPokemonState = useAppSelector(state => state.savedPokemon);
 
   const { id } = location.state;
 
-  console.log(savedPokemonState, 'savedPokemonState');
-  const processFlowData = [
-    {
-      text: 'User details',
-      isActive: true,
-    },
-    {
-      text: 'Pokemon',
-      isActive: true,
-    },
-    {
-      text: 'Review',
-      isActive: true,
-    },
-  ];
-
-  const data = [
-    {
-      id: 1,
-      text: 'Successful',
-      helperText: 'Status',
-    },
-
-    {
-      id: 2,
-      text: 'Data',
-      helperText: 'Service',
-    },
-
-    {
-      id: 3,
-      text: 'MTN',
-      helperText: 'Network Operator',
-    },
-
-    {
-      id: 4,
-      text: '234 81458810',
-      helperText: 'Mobile Number',
-    },
-
-    {
-      id: 5,
-      text: '234848843890881458810',
-      helperText: 'Transaction ref',
-    },
-  ];
+  useLayoutEffect(() => {
+    const currentData = savedPokemonState.data.filter(el => el.id === id);
+    const { address, firstName, lastName, name, tel } = currentData[0];
+    const updateArray = [
+      {
+        id: 1,
+        text: name,
+        helperText: 'Name',
+      },
+      {
+        id: 2,
+        text: firstName,
+        helperText: 'First name',
+      },
+      {
+        id: 3,
+        text: lastName,
+        helperText: 'Last name',
+      },
+      {
+        id: 4,
+        text: tel,
+        helperText: 'Phone number',
+      },
+      {
+        id: 5,
+        text: address,
+        helperText: 'Address',
+      },
+    ];
+    setData(updateArray);
+  }, []);
 
   const handleContinue = () => {
     showMessage({
       type: 'success',
       message: 'Item saved successfully',
     });
-    // navigate(HOME);
+    navigate(HOME);
   };
 
   return (

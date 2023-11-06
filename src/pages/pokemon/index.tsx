@@ -21,7 +21,7 @@ import { Container, BtnContent } from './style';
 const processFlowData = [
   {
     text: 'User details',
-    isActive: false,
+    isActive: true,
   },
   {
     text: 'Pokemon',

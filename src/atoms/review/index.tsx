@@ -2,22 +2,23 @@ import { FiChevronLeft } from 'react-icons/fi';
 
 import { Button } from '../../components';
 import { HA, H4, H5 } from '../../styles';
-import { colors, spacing } from '../../utils';
+import { colors, capitalizeFirstLetter } from '../../utils';
 
 import { Container, DateContainer, Content, DataContainer, DataContent, BackIconContainer } from './style';
 
-export interface TransactionDataIProps {
+export interface ReviewDataIProps {
+  id: number;
   text: string;
   helperText: string;
 }
 
 export interface IProps {
   onClickDone?: () => void;
-  data: TransactionDataIProps[];
+  data: ReviewDataIProps[];
   date: string;
 }
 
-function Review({ onClickDone, data, date = '15:50, July 10th, 2023' }: IProps) {
+function Review({ onClickDone, data, date }: IProps) {
   return (
     <Container>
       <Content>
@@ -27,10 +28,10 @@ function Review({ onClickDone, data, date = '15:50, July 10th, 2023' }: IProps) 
       </Content>
 
       <DataContent>
-        {data?.map((item: TransactionDataIProps, index: number) => (
+        {data?.map((item: ReviewDataIProps, index: number) => (
           <DataContainer key={index}>
             <H5 color={colors.greyTwo}>{item?.helperText}</H5>
-            <H5 color={item.text === 'Successful' ? colors.green : colors.robust}>{item?.text}</H5>
+            <H5 color={colors.robust}>{capitalizeFirstLetter(item?.text)}</H5>
           </DataContainer>
         ))}
       </DataContent>
