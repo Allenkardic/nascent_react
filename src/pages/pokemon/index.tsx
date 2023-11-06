@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { AppContainer } from '../../atoms';
-import { PokemonCard, Pagination, Button } from '../../components';
+import { PokemonCard, Pagination, Button, SearchInput } from '../../components';
 import { PokemonCardIProps } from '../../components/pokemonCard';
 import { useAppDispatch, useAppSelector } from '../../services/redux-hooks';
-import { pokemonRequest, pokemonReset } from '../../services/slice';
+import { pokemonRequest, pokemonReset, singlPokemonRequest, singlPokemonReset } from '../../services/slice';
 import { Dictionary } from '../../types';
 import { spacing, routesPath, colors } from '../../utils';
 
@@ -34,14 +34,17 @@ function Pokemon() {
   const [page, setPage] = useState(0);
   const [selectedPokemon, setSelectedPokemon] = useState({});
   const [data, setData] = useState<PokemonCardIProps[]>([]);
-
+  const [searchValue, setSearchValue] = useState('');
   // redux state
   const pokemonState = useAppSelector(state => state.pokemon);
   const { status: pokemonStatus } = pokemonState;
 
+  const singlePokemonState = useAppSelector(state => state.singlePokemon);
+  const { status: singlePokemonStatus } = singlePokemonState;
+
   useEffect(() => {
-    dispatch(pokemonRequest({ page: page }));
-  }, [page]);
+    dispatch(pokemonRequest({ page: page, name: searchValue }));
+  }, [searchValue, page]);
 
   useEffect(() => {
     if (pokemonStatus === 'succeeded') {
@@ -59,7 +62,22 @@ function Pokemon() {
     }
   }, [pokemonState]);
 
-  console.log(pokemonState.data.previous, 'pokemonState');
+  // single pokemon
+  useEffect(() => {
+    if (singlePokemonStatus === 'succeeded') {
+      const updatedList: PokemonCardIProps[] = [];
+      singlePokemonState.data.data.forEach((item: Dictionary) => {
+        updatedList.push({
+          isActive: false,
+          text: item.name,
+          imgSrc: item?.sprites?.other?.home?.front_default,
+        });
+      });
+      setData(updatedList);
+
+      dispatch(singlPokemonReset());
+    }
+  }, [singlePokemonState]);
 
   const handleSelect = (item: PokemonCardIProps) => {
     const updatedList: PokemonCardIProps[] = [
@@ -77,28 +95,20 @@ function Pokemon() {
     setData(updatedList);
   };
 
-  // useEffect(() => {
-  //   const onScroll = () => {
-  //     // if scrolled to the bottom
-  //     if (window.innerHeight + window.scrollY >= window.document.body.offsetHeight) {
-  //       // update the state
-  //       setPage(prevState => prevState + 30);
-  //       dispatch(pokemonRequest({ page }));
-
-  //       console.log('its at the end');
-  //     }
-  //   };
-
-  //   // scroll event
-  //   window.addEventListener('scroll', onScroll);
-
-  //   // memory cleanup, remove listener
-  //   return () => window.removeEventListener('scroll', onScroll);
-  // }, [page]);
+  const handleOnSearch = () => {
+    dispatch(singlPokemonRequest({ name: searchValue }));
+  };
 
   return (
     <AppContainer secondaryView={true} navHeaderText="Select Pokemon" processFlowData={processFlowData}>
       <div style={{ border: '1px solid red' }}>
+        <SearchInput
+          name="searchValue"
+          value={searchValue}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchValue(e?.target?.value)}
+          onClickSearch={handleOnSearch}
+        />
+
         <Container>
           {data.map(item => (
             <div key={item.text}>

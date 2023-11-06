@@ -39,7 +39,7 @@ async function fetchPokemonData(pokemon: { url?: string }) {
   }
 }
 
-export const pokemonRequest = createAsyncThunk('pokemon', async (payload: Dictionary, { dispatch }) => {
+export const pokemonRequest = createAsyncThunk('pokemon', async (payload: Dictionary, {}) => {
   const { page } = payload;
   const url = `pokemon`;
 
