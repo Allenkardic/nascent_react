@@ -1,17 +1,22 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import { Review, AppContainer } from '../../atoms';
-import { routesPath } from '../../utils';
+import { useAppDispatch, useAppSelector } from '../../services/redux-hooks';
+import { routesPath, showMessage } from '../../utils';
 
 const { HOME } = routesPath;
 
 function ReviewPokemon() {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  // const location = useLocation();
+  const location = useLocation();
 
-  // const { previousPage } = location.state;
+  const savedPokemonState = useAppSelector(state => state.savedPokemon);
 
+  const { id } = location.state;
+
+  console.log(savedPokemonState, 'savedPokemonState');
   const processFlowData = [
     {
       text: 'User details',
@@ -59,17 +64,18 @@ function ReviewPokemon() {
     },
   ];
 
+  const handleContinue = () => {
+    showMessage({
+      type: 'success',
+      message: 'Item saved successfully',
+    });
+    // navigate(HOME);
+  };
+
   return (
     <AppContainer navHeaderText="Review" processFlowData={processFlowData}>
       <div>
-        <Review
-          data={data}
-          date="15:50, July 10th, 2023"
-          onClickDownload={() => {
-            console.log('hello');
-          }}
-          onClickDone={() => navigate(HOME)}
-        />
+        <Review data={data} date={new Date().toDateString()} onClickDone={handleContinue} />
       </div>
     </AppContainer>
   );

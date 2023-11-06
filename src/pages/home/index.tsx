@@ -1,9 +1,12 @@
 import { Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import * as yup from 'yup';
 
 import { AppContainer } from '../../atoms';
 import { Button, Input } from '../../components';
+import { useAppDispatch, useAppSelector } from '../../services/redux-hooks';
+import { savedPokemonRequest, savedPokemonReset } from '../../services/slice';
 import { HA } from '../../styles';
 import { spacing, routesPath, colors } from '../../utils';
 const { POKEMON } = routesPath;
@@ -27,6 +30,7 @@ const processFlowData = [
 ];
 
 function Home() {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const schema = yup.object().shape({
@@ -36,6 +40,9 @@ function Home() {
     address: yup.string().required('Address is required'),
   });
 
+  const savedPokemonState = useAppSelector(state => state.savedPokemon);
+
+  const userId = uuidv4();
   return (
     <AppContainer navHeaderText="Home" processFlowData={processFlowData}>
       <div>
@@ -49,20 +56,21 @@ function Home() {
           enableReinitialize={true}
           validationSchema={schema}
           onSubmit={async (values, { setSubmitting }) => {
-            console.log({ values });
-
             const payload = {
+              id: userId,
+              step: 2,
               ...values,
             };
+            dispatch(savedPokemonRequest([...savedPokemonState.data, payload]));
 
-            console.log(payload, 'payload');
-            navigate(POKEMON);
+            navigate(POKEMON, { state: { id: userId } });
             setSubmitting(false);
           }}>
           {formikProps => {
             const { handleChange, values, handleSubmit, errors } = formikProps;
             return (
               <div>
+                <div onClick={() => savedPokemonReset()}>hh</div>
                 <form onSubmit={handleSubmit}>
                   <div>
                     <Input

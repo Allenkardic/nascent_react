@@ -1,14 +1,20 @@
 import { useEffect, useState } from 'react';
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import { AppContainer } from '../../atoms';
 import { PokemonCard, Pagination, Button, SearchInput } from '../../components';
 import { PokemonCardIProps } from '../../components/pokemonCard';
 import { useAppDispatch, useAppSelector } from '../../services/redux-hooks';
-import { pokemonRequest, pokemonReset, singlPokemonRequest, singlPokemonReset } from '../../services/slice';
+import {
+  pokemonRequest,
+  pokemonReset,
+  singlPokemonRequest,
+  singlPokemonReset,
+  savedPokemonRequest,
+} from '../../services/slice';
 import { Dictionary } from '../../types';
-import { spacing, routesPath, colors } from '../../utils';
+import { spacing, routesPath, updateSavedPokemonListById } from '../../utils';
 
 // import { useGetPokemonByNameQuery } from "../store/pokemon";
 import { Container, BtnContent } from './style';
@@ -31,9 +37,10 @@ const { REVIEWPOKEMON } = routesPath;
 function Pokemon() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const location = useLocation();
 
   const [page, setPage] = useState(0);
-  const [selectedPokemon, setSelectedPokemon] = useState({});
+  const [selectedPokemon, setSelectedPokemon] = useState<Dictionary>({});
   const [data, setData] = useState<PokemonCardIProps[]>([]);
   const [searchValue, setSearchValue] = useState('');
   // redux state
@@ -42,6 +49,8 @@ function Pokemon() {
 
   const singlePokemonState = useAppSelector(state => state.singlePokemon);
   const { status: singlePokemonStatus } = singlePokemonState;
+
+  const savedPokemonState = useAppSelector(state => state.savedPokemon);
 
   useEffect(() => {
     dispatch(pokemonRequest({ page: page, name: searchValue }));
@@ -100,6 +109,23 @@ function Pokemon() {
     dispatch(singlPokemonRequest({ name: searchValue }));
   };
 
+  // console.log(savedPokemonState, 'savedPokemonState');
+
+  const { id } = location.state;
+
+  const handleContinue = () => {
+    dispatch(
+      savedPokemonRequest(
+        updateSavedPokemonListById(savedPokemonState?.data, id, { step: 3, name: selectedPokemon?.text }),
+      ),
+    );
+    navigate(REVIEWPOKEMON, {
+      state: {
+        id,
+      },
+    });
+  };
+
   return (
     <AppContainer secondaryView={true} navHeaderText="Select Pokemon" processFlowData={processFlowData}>
       <div style={{ border: '1px solid red' }}>
@@ -125,7 +151,7 @@ function Pokemon() {
 
         <BtnContent>
           <Button
-            onClick={() => navigate(REVIEWPOKEMON)}
+            onClick={handleContinue}
             text="Continue"
             disabled={selectedPokemon?.hasOwnProperty('text') ? false : true}
           />

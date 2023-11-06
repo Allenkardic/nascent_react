@@ -12,13 +12,12 @@ export interface TransactionDataIProps {
 }
 
 export interface IProps {
-  onClickDownload?: () => void;
   onClickDone?: () => void;
   data: TransactionDataIProps[];
   date: string;
 }
 
-function Review({ onClickDownload, onClickDone, data, date = '15:50, July 10th, 2023' }: IProps) {
+function Review({ onClickDone, data, date = '15:50, July 10th, 2023' }: IProps) {
   return (
     <Container>
       <Content>
@@ -36,15 +35,7 @@ function Review({ onClickDownload, onClickDone, data, date = '15:50, July 10th, 
         ))}
       </DataContent>
 
-      <Button text="Download receipt" onClick={onClickDownload} />
-
-      <BackIconContainer onClick={onClickDone}>
-        <FiChevronLeft size={25} color={colors.greyDark} />
-
-        <H4 fSize="14px" color={colors.greyDark} style={{ cursor: 'pointer' }}>
-          Back Home
-        </H4>
-      </BackIconContainer>
+      <Button text="Done" onClick={onClickDone} />
     </Container>
   );
 }
