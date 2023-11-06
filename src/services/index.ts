@@ -1,2 +1,2 @@
-// export const { useGetPokemonByNameQuery } = pokemonApi;
-export { default as pokemonApi } from './pokemon';
+export * from './store';
+export * from './root-reducer';

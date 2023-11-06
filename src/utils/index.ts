@@ -5,3 +5,4 @@ export { default as fontWeight } from './fontWeight';
 export { default as routesPath } from './routesPath';
 export { default as capitalizeFirstLetter } from './capitalizeFirstLetter';
 export { default as validateEmail } from './validateEmail';
+export { default as showMessage } from './showMessage';
