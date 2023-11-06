@@ -9,11 +9,12 @@ export interface PokemonCardIProps {
   text: string;
   isActive: boolean;
   imgSrc: string;
+  onClick?: () => void;
 }
 
-function PokemonCard({ text, imgSrc, isActive }: PokemonCardIProps) {
+function PokemonCard({ text, imgSrc, isActive, onClick }: PokemonCardIProps) {
   return (
-    <Container isActive={isActive}>
+    <Container isActive={isActive} onClick={onClick}>
       <ImageContent src={imgSrc} isActive={isActive} />
       <H7 fw={isActive ? '700' : '500'} ta="center" color={isActive ? colors.white : colors.greyOne}>
         {text}

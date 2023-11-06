@@ -1,9 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import api from '../../api';
+import { getApiOffsetFromUrl } from '../../utils';
 
 type Dictionary = {
-  [key: string]: unknown;
+  [key: string]: any;
 };
 
 interface InitState {
@@ -18,19 +19,50 @@ const initialState = {
   error: null,
 } as InitState;
 
+async function fetchPokemonData(pokemon: { url?: string }) {
+  if (!pokemon.url) {
+    console.error('Missing or invalid Pokemon URL.');
+    return null;
+  }
+
+  try {
+    const response = await fetch(pokemon.url);
+    if (!response.ok) {
+      console.error('Failed to fetch Pokemon data:', response.status, response.statusText);
+      return null;
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error('An error occurred while fetching Pokemon data:', error);
+    return null;
+  }
+}
+
 export const pokemonRequest = createAsyncThunk('pokemon', async (payload: Dictionary, { dispatch }) => {
-  const { per_page, page } = payload;
+  const { page } = payload;
   const url = `pokemon`;
 
   try {
     const response = await api.get(url, {
       params: {
-        per_page,
-        page,
+        offset: page,
+        limit: 30,
       },
     });
-    console.log(response?.data, 'response?.data');
-    return response?.data;
+    const pokemonData = await Promise.all(
+      response.data.results.map((pokemon: Dictionary) => fetchPokemonData(pokemon)),
+    );
+
+    // console.log(pokemonData, 'result');
+    // console.log(response.data, 'result');
+    // return pokemonData;
+
+    return {
+      data: pokemonData,
+      next: getApiOffsetFromUrl(response?.data?.next),
+      previous: getApiOffsetFromUrl(response?.data?.previous),
+    };
   } catch (err) {
     console.log(err, 'error');
     throw err;

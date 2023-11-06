@@ -9,7 +9,8 @@ import rootReducer, { RootState } from './root-reducer';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['pokemon'],
+  //   whitelist: ['pokemon'],
+  blacklist: ['pokemon'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
