@@ -6,7 +6,7 @@ import { useAppSelector } from '../../services/redux-hooks';
 import { Dictionary } from '../../types';
 import { getRouteNameByStepper, routesPath } from '../../utils';
 
-import { BtnContent } from './style';
+import { BtnContent, FooterContent } from './style';
 
 const { HOME } = routesPath;
 
@@ -28,9 +28,11 @@ function History() {
           </div>
         ))}
 
-        <BtnContent>
-          <Button text="Home" onClick={() => navigate(HOME)} />
-        </BtnContent>
+        <FooterContent>
+          <BtnContent>
+            <Button text="Home" onClick={() => navigate(HOME)} />
+          </BtnContent>
+        </FooterContent>
       </div>
     </AppContainer>
   );

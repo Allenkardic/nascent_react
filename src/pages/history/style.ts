@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { spacing } from '../../utils';
+import { spacing, colors } from '../../utils';
 
 export const Container = styled.div`
   display: grid;
@@ -10,8 +10,18 @@ export const Container = styled.div`
 `;
 
 export const BtnContent = styled.div`
-  margin-top: ${spacing.large};
+  margin-top: ${spacing.small};
+  margin-bottom: ${spacing.small};
   width: 200px;
   margin-left: auto;
   margin-right: auto;
+`;
+
+export const FooterContent = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: ${colors.greyFour};
 `;
