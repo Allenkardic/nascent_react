@@ -10,21 +10,6 @@ import { BtnContent } from './style';
 
 const { HOME } = routesPath;
 
-const processFlowData = [
-  {
-    text: 'User details',
-    isActive: true,
-  },
-  {
-    text: 'Pokemon',
-    isActive: true,
-  },
-  {
-    text: 'Review',
-    isActive: true,
-  },
-];
-
 function History() {
   const navigate = useNavigate();
 
@@ -35,7 +20,7 @@ function History() {
   };
 
   return (
-    <AppContainer navHeaderText="Bookmarked" processFlowData={processFlowData}>
+    <AppContainer navHeaderText="Bookmark" secondaryView>
       <div>
         {savedPokemonState?.data.map((item, index) => (
           <div key={index}>

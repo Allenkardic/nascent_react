@@ -15,6 +15,7 @@ const colors = {
   greyOne: '#9293a0',
   greyTwo: '#828282',
   greyThree: '#E0E0E0',
+  greyFour: '#cccc',
   robust: '#090E29',
   robustRobust: '#2A3362',
   smokeWhite: '#EEEEEE',

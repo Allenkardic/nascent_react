@@ -11,20 +11,19 @@ import { Container, ProgressContainer } from './style';
 
 export interface NavProps {
   title?: string;
-  isSearchBar?: boolean;
-  processFlowData: ProgressBarIProps[];
+  processFlowData?: ProgressBarIProps[];
 }
 
-function Navbar({ title, isSearchBar, processFlowData }: NavProps) {
+function Navbar({ title, processFlowData }: NavProps) {
   return (
     <Container>
       {title && <HA>{title}</HA>}
 
-      {isSearchBar && <HA>isSearchBar</HA>}
-
-      <ProgressContainer>
-        <ProgressFlow data={processFlowData} />
-      </ProgressContainer>
+      {processFlowData && (
+        <ProgressContainer>
+          <ProgressFlow data={processFlowData} />
+        </ProgressContainer>
+      )}
     </Container>
   );
 }

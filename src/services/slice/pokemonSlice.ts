@@ -54,10 +54,6 @@ export const pokemonRequest = createAsyncThunk('pokemon', async (payload: Dictio
       response.data.results.map((pokemon: Dictionary) => fetchPokemonData(pokemon)),
     );
 
-    // console.log(pokemonData, 'result');
-    // console.log(response.data, 'result');
-    // return pokemonData;
-
     return {
       data: pokemonData,
       next: getApiOffsetFromUrl(response?.data?.next),

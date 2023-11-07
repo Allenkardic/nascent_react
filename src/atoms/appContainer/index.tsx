@@ -12,14 +12,13 @@ export interface IProps {
   secondaryView?: boolean;
   isFooterVisible?: boolean;
   navHeaderText?: string;
-  processFlowData: ProgressBarIProps[];
+  processFlowData?: ProgressBarIProps[];
 }
 
 function AppContainer({ children, secondaryView = false, navHeaderText, processFlowData }: IProps) {
   return (
     <>
       <Navbar title={navHeaderText} processFlowData={processFlowData} />
-
       <div>
         <PageContainer>
           <PageContent secondaryView={secondaryView}>{children}</PageContent>

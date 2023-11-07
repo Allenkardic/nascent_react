@@ -17,45 +17,43 @@ export const AppContainer = styledComponents.div`
 `;
 
 export const PageContainer = styledComponents.div<StyleProps>`
-  padding-top: ${spacing.medium};
+  padding-top: ${spacing.xxsmall};
   background-color: ${colors.white};
   display: flex;
   flex-direction: column;
-  width: 90%;
   margin-left: auto;
   margin-right: auto;
 
+
   @media only screen and (min-width: 600px) {
     /* For tablets: */
-    margin-left: auto;
-    margin-right: auto;
+   
   }
 
   @media only screen and (min-width: 768px) {
     /* For desktop: */
-    // width: 34vw;
-    // min-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+   
+
+ 
 `;
 
 export const PageContent = styledComponents.div<StyleProps>`
-  padding-top: ${spacing.medium};
-  background-color: ${colors.white};
-  display: flex;
-  flex-direction: column;
+
+ 
+  padding: 0px ${spacing.xxsmall};
 
   @media only screen and (min-width: 600px) {
     /* For tablets: */
-    // padding-left: ${({ secondaryView }) => (secondaryView ? '0px' : spacing.large)};
-    // padding-right: ${({ secondaryView }) => (secondaryView ? '0px' : spacing.large)};
+
   }
 
   @media only screen and (min-width: 768px) {
     /* For desktop: */
-    // padding-left: ${({ secondaryView }) => (secondaryView ? '0px' : spacing.large)};
-    // padding-right: ${({ secondaryView }) => (secondaryView ? '0px' : spacing.large)};
+    width: ${({ secondaryView }) => (secondaryView ? '34vw' : '100vw')};
+    min-width: ${({ secondaryView }) => (secondaryView ? '500px' : '100vw')};
+    margin-left: auto;
+    margin-right: auto;
+
   }
 `;
 

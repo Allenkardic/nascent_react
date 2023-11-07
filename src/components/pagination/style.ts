@@ -28,6 +28,6 @@ export const Content = styled.div<StyleProps>`
   align-content: center;
   align-self: center;
   background-color: ${({ isPreviousActive }) => (isPreviousActive ? colors.smokeWhite : colors.grey)};
-  margin-top: ${spacing.medium};
-  margin-bottom: ${spacing.medium};
+  margin-top: ${spacing.xsmall};
+  margin-bottom: ${spacing.xxsmall};
 `;

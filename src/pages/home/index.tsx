@@ -44,7 +44,7 @@ function Home() {
 
   const userId = uuidv4();
   return (
-    <AppContainer navHeaderText="Home" processFlowData={processFlowData}>
+    <AppContainer navHeaderText="Home" processFlowData={processFlowData} secondaryView>
       <div>
         <Formik
           initialValues={{

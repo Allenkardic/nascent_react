@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import { AppContainer } from '../../atoms';
-import { PokemonCard, Pagination, Button, SearchInput } from '../../components';
+import { PokemonCard, Pagination, Button, SearchInput, Loader } from '../../components';
 import { PokemonCardIProps } from '../../components/pokemonCard';
 import { useAppDispatch, useAppSelector } from '../../services/redux-hooks';
 import {
@@ -14,10 +14,10 @@ import {
   savedPokemonRequest,
 } from '../../services/slice';
 import { Dictionary } from '../../types';
-import { spacing, routesPath, updateSavedPokemonListById } from '../../utils';
+import { routesPath, updateSavedPokemonListById } from '../../utils';
 
 // import { useGetPokemonByNameQuery } from "../store/pokemon";
-import { Container, BtnContent } from './style';
+import { Container, BtnContent, FooterContent } from './style';
 const processFlowData = [
   {
     text: 'User details',
@@ -109,8 +109,6 @@ function Pokemon() {
     dispatch(singlPokemonRequest({ name: searchValue }));
   };
 
-  // console.log(savedPokemonState, 'savedPokemonState');
-
   const { id } = location.state;
 
   const handleContinue = () => {
@@ -127,41 +125,47 @@ function Pokemon() {
   };
 
   return (
-    <AppContainer secondaryView={true} navHeaderText="Select Pokemon" processFlowData={processFlowData}>
-      <div style={{ border: '1px solid red' }}>
-        <SearchInput
-          name="searchValue"
-          value={searchValue}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchValue(e?.target?.value)}
-          onClickSearch={handleOnSearch}
-        />
-
-        <Container>
-          {data.map(item => (
-            <div key={item.text}>
-              <PokemonCard
-                imgSrc={item.imgSrc}
-                isActive={item.isActive}
-                text={item.text}
-                onClick={() => handleSelect(item)}
-              />
-            </div>
-          ))}
-        </Container>
-
-        <BtnContent>
-          <Button
-            onClick={handleContinue}
-            text="Continue"
-            disabled={selectedPokemon?.hasOwnProperty('text') ? false : true}
+    <AppContainer navHeaderText="Select Pokemon" processFlowData={processFlowData}>
+      {pokemonStatus === 'loading' ? (
+        <Loader count={30} />
+      ) : (
+        <div>
+          <SearchInput
+            name="searchValue"
+            value={searchValue}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchValue(e?.target?.value)}
+            onClickSearch={handleOnSearch}
           />
-        </BtnContent>
-        <Pagination
-          isPreviousActive={pokemonState.data.previous === null ? false : true}
-          onClickNext={() => setPage(pokemonState.data.next)}
-          onClickPrevious={() => setPage(pokemonState.data.previous)}
-        />
-      </div>
+
+          <Container>
+            {data.map(item => (
+              <div key={item.text}>
+                <PokemonCard
+                  imgSrc={item.imgSrc}
+                  isActive={item.isActive}
+                  text={item.text}
+                  onClick={() => handleSelect(item)}
+                />
+              </div>
+            ))}
+          </Container>
+
+          <FooterContent>
+            <BtnContent>
+              <Button
+                onClick={handleContinue}
+                text="Continue"
+                disabled={selectedPokemon?.hasOwnProperty('text') ? false : true}
+              />
+            </BtnContent>
+            <Pagination
+              isPreviousActive={pokemonState.data.previous === null ? false : true}
+              onClickNext={() => setPage(pokemonState.data.next)}
+              onClickPrevious={() => setPage(pokemonState.data.previous)}
+            />
+          </FooterContent>
+        </div>
+      )}
     </AppContainer>
   );
 }
