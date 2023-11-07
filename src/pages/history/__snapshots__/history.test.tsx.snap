@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders History page correctly 1`] = `
+.c2 {
+  padding-top: 16px;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 150px;
+}
+
+.c3 {
+  padding: 0px 16px;
+}
+
+.c1 {
+  font-weight: 400;
+  color: #333333;
+  font-size: 15px;
+  text-align: left;
+  font-family: Medium;
+}
+
+.c7 {
+  font-weight: 700;
+  color: #FFFFFF;
+  font-size: 16px;
+  text-align: center;
+  font-family: Medium;
+}
+
+.c6 {
+  display: flex;
+  display: webkit-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #2A3362;
+  background-color: #2A3362;
+  border: 1px solid #2A3362;
+  height: 56px;
+  width: 100%;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  opacity: 1;
+  margin-bottom: 0px;
+}
+
+.c0 {
+  display: flex;
+  display: webkit-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  padding: 0px 160px;
+  border-bottom: 1px solid #E9EBF5;
+  background-color: transparent;
+}
+
+.c5 {
+  margin-top: 32px;
+  margin-bottom: 32px;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.c4 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: #cccc;
+}
+
+@media only screen and (min-width: 768px) {
+  .c3 {
+    width: 34vw;
+    min-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 48rem) {
+  .c1 {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 48rem) {
+  .c7 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .c0 {
+    padding: 0px 16px;
+    height: 74px;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      Bookmark
+    </div>
+  </div>
+  <div>
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        <div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <button
+                btnht="56px"
+                class="c6"
+                type="button"
+              >
+                <div
+                  class="c7"
+                  color="#FFFFFF"
+                  fw="700"
+                  ta="center"
+                >
+                  Home
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
