@@ -15,19 +15,9 @@ const initialState = {
 } as InitState;
 
 export const savedPokemonRequest = createAsyncThunk('savedPokemon', async (payload: Dictionary[], {}) => {
-  //   const url = `pokemon/${name}`;
-
   try {
-    // const response = await api.get(url);
-
-    // return {
-    //   data: [response.data],
-    //   next: null,
-    //   previous: null,
-    // };
     return payload;
   } catch (err) {
-    console.log(err, 'error');
     throw err;
   }
 });

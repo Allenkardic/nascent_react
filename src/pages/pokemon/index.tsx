@@ -111,8 +111,8 @@ function Pokemon() {
       savedPokemonRequest(
         updateSavedPokemonListById(savedPokemonState?.data, id, {
           step: 3,
-          name: selectedPokemon?.text,
-          image: selectedPokemon?.imgSrc,
+          name: selectedPokemon.text,
+          image: selectedPokemon.imgSrc,
         }),
       ),
     );
@@ -139,8 +139,6 @@ function Pokemon() {
     });
     navigate(HISTORY);
   };
-
-  console.log(selectedPokemon, 'selectedPokemon');
 
   return (
     <AppContainer navHeaderText="Select Pokemon" processFlowData={processFlowData}>

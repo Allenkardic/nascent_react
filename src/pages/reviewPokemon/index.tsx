@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -34,7 +34,7 @@ function ReviewPokemon() {
 
   const { id } = location.state;
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const currentData = savedPokemonState.data.filter(el => el.id === id);
     const { address, firstName, lastName, name, tel, image } = currentData[0];
     const updateArray = [

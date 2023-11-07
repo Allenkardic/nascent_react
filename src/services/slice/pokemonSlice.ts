@@ -60,7 +60,6 @@ export const pokemonRequest = createAsyncThunk('pokemon', async (payload: Dictio
       previous: getApiOffsetFromUrl(response?.data?.previous),
     };
   } catch (err) {
-    console.log(err, 'error');
     throw err;
   }
 });

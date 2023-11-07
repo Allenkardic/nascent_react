@@ -6,14 +6,11 @@ const { HOME } = routesPath;
 
 const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
-console.log(BASE_URL, 'BASE_URL');
-
 const instance = axios.create({
   baseURL: BASE_URL,
   timeout: 20000,
   headers: {
     Accept: 'application/json',
-    // 'Content-Type': 'application/json; charset=utf-8',
   },
 });
 

@@ -22,14 +22,12 @@ export const singlPokemonRequest = createAsyncThunk('singlePokemon', async (payl
   try {
     const response = await api.get(url);
 
-    // console.log(response.data, 'response.data');
     return {
       data: [response.data],
       next: null,
       previous: null,
     };
   } catch (err) {
-    console.log(err, 'error');
     throw err;
   }
 });
