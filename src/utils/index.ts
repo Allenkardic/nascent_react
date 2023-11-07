@@ -8,3 +8,6 @@ export { default as validateEmail } from './validateEmail';
 export { default as showMessage } from './showMessage';
 export { default as getApiOffsetFromUrl } from './getApiOffsetFromUrl';
 export { default as updateSavedPokemonListById } from './updateSavedPokemonListById';
+export { default as transformedArray } from './transformedArray';
+export { default as getHistoryStepper } from './getHistoryStepper';
+export { default as getRouteNameByStepper } from './getRouteNameByStepper';

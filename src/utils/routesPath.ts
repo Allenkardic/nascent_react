@@ -3,6 +3,7 @@ const routesPath = {
   HOME: '/',
   POKEMON: '/pokemon',
   REVIEWPOKEMON: '/pokemon/review',
+  HISTORY: '/pokemon/history',
 };
 
 export default routesPath;

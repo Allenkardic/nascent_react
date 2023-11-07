@@ -7,3 +7,4 @@ export { default as PokemonCard } from './pokemonCard';
 export { default as Pagination } from './pagination';
 export { default as SearchInput } from './searchInput';
 export { default as BorderedText } from './borderedText';
+export { default as HistoryCard } from './historyCard';

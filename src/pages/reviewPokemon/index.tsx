@@ -6,7 +6,7 @@ import { Review, AppContainer } from '../../atoms';
 import { ReviewDataIProps } from '../../atoms/review';
 import { useAppDispatch, useAppSelector } from '../../services/redux-hooks';
 import { routesPath, showMessage } from '../../utils';
-const { HOME } = routesPath;
+const { HISTORY } = routesPath;
 
 const processFlowData = [
   {
@@ -72,7 +72,7 @@ function ReviewPokemon() {
       type: 'success',
       message: 'Item saved successfully',
     });
-    navigate(HOME);
+    navigate(HISTORY);
   };
 
   return (

@@ -1,10 +1,8 @@
-import { FiChevronLeft } from 'react-icons/fi';
-
 import { Button } from '../../components';
-import { HA, H4, H5 } from '../../styles';
+import { H4, H5 } from '../../styles';
 import { colors, capitalizeFirstLetter } from '../../utils';
 
-import { Container, DateContainer, Content, DataContainer, DataContent, BackIconContainer } from './style';
+import { Container, DateContainer, Content, DataContainer, DataContent } from './style';
 
 export interface ReviewDataIProps {
   id: number;
