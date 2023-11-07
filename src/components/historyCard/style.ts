@@ -32,3 +32,7 @@ export const ProgressContaniner = styled.div`
   margin-top: ${spacing.xxsmall};
   margin-bottom: ${spacing.xxxsmall};
 `;
+
+export const TextContaniner = styled.div`
+  width: 70%;
+`;
