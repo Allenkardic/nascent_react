@@ -23,6 +23,8 @@ export const PageContainer = styledComponents.div<StyleProps>`
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 150px;
+  border:1px solid red;
 
 
   @media only screen and (min-width: 600px) {

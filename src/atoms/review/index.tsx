@@ -32,7 +32,9 @@ function Review({ onClickDone, data, date, image }: IProps) {
         {data?.map((item: ReviewDataIProps, index: number) => (
           <DataContainer key={index}>
             <H5 color={colors.greyTwo}>{item?.helperText}</H5>
-            <H5 color={colors.robust}>{capitalizeFirstLetter(item?.text)}</H5>
+            <H5 ta="right" color={colors.robust}>
+              {capitalizeFirstLetter(item?.text || '')}
+            </H5>
           </DataContainer>
         ))}
       </DataContent>

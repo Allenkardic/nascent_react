@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const BtnContent = styled.div`
   margin-top: ${spacing.large};
-  width: 30%;
+  width: 200px;
   margin-left: auto;
   margin-right: auto;
 `;

@@ -1,11 +1,8 @@
 import { ReactElement } from 'react';
 
-// import { FiChevronLeft } from 'react-icons/fi';
-
 import { Navbar } from '../../components';
 import { ProgressBarIProps } from '../../components/progressBar';
 import { PageContainer, PageContent } from '../../styles';
-// import { colors } from '../../utils';
 
 export interface IProps {
   children: ReactElement;
