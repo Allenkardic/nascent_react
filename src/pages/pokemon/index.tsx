@@ -104,7 +104,7 @@ function Pokemon() {
     dispatch(singlPokemonRequest({ name: searchValue }));
   };
 
-  const { id } = location.state;
+  const id = location?.state?.id;
 
   const handleContinue = () => {
     dispatch(

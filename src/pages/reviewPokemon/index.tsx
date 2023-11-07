@@ -32,41 +32,41 @@ function ReviewPokemon() {
   const [imageSrc, setImageSrc] = useState('');
   const savedPokemonState = useAppSelector(state => state.savedPokemon);
 
-  const { id } = location.state;
+  const id = location?.state?.id;
 
   useEffect(() => {
     const currentData = savedPokemonState.data.filter(el => el.id === id);
-    const { address, firstName, lastName, name, tel, image } = currentData[0];
+
     const updateArray = [
       {
         id: 1,
-        text: name,
+        text: currentData[0]?.firstName,
         helperText: 'Pokemon',
       },
       {
         id: 2,
-        text: firstName,
+        text: currentData[0]?.firstName,
         helperText: 'First name',
       },
       {
         id: 3,
-        text: lastName,
+        text: currentData[0]?.lastName,
         helperText: 'Last name',
       },
       {
         id: 4,
-        text: tel,
+        text: currentData[0]?.tel,
         helperText: 'Phone number',
       },
       {
         id: 5,
-        text: address,
+        text: currentData[0]?.address,
         helperText: 'Address',
       },
     ];
 
     setData(updateArray);
-    setImageSrc(image);
+    setImageSrc(currentData[0]?.image);
   }, []);
 
   const handleContinue = () => {

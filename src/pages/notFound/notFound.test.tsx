@@ -2,15 +2,15 @@ import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
-import { Pokemon } from '..';
+import { NotFound } from '..';
 import { store } from '../../services';
 import 'jest-styled-components';
 
-test('it renders Pokeman page correctly', () => {
+test('it renders NotFound page correctly', () => {
   const { container } = render(
     <Provider store={store}>
       <BrowserRouter>
-        <Pokemon />
+        <NotFound />
       </BrowserRouter>
     </Provider>,
   );

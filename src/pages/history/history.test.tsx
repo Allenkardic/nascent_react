@@ -6,7 +6,7 @@ import { History } from '..';
 import { store } from '../../services';
 import 'jest-styled-components';
 
-test('it renders correctly', () => {
+test('it renders History page correctly', () => {
   const { container } = render(
     <Provider store={store}>
       <BrowserRouter>
