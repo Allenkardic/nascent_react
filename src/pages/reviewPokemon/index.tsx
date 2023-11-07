@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import { Review, AppContainer } from '../../atoms';
@@ -28,46 +26,39 @@ function ReviewPokemon() {
 
   const location = useLocation();
 
-  const [data, setData] = useState<ReviewDataIProps[]>([]);
-  const [imageSrc, setImageSrc] = useState('');
   const savedPokemonState = useAppSelector(state => state.savedPokemon);
 
   const id = location?.state?.id;
 
-  useEffect(() => {
-    const currentData = savedPokemonState.data.filter(el => el.id === id);
+  const currentData = savedPokemonState.data.filter(el => el.id === id);
 
-    const updateArray = [
-      {
-        id: 1,
-        text: currentData[0]?.firstName,
-        helperText: 'Pokemon',
-      },
-      {
-        id: 2,
-        text: currentData[0]?.firstName,
-        helperText: 'First name',
-      },
-      {
-        id: 3,
-        text: currentData[0]?.lastName,
-        helperText: 'Last name',
-      },
-      {
-        id: 4,
-        text: currentData[0]?.tel,
-        helperText: 'Phone number',
-      },
-      {
-        id: 5,
-        text: currentData[0]?.address,
-        helperText: 'Address',
-      },
-    ];
-
-    setData(updateArray);
-    setImageSrc(currentData[0]?.image);
-  }, []);
+  const updateArray: ReviewDataIProps[] = [
+    {
+      id: 1,
+      text: currentData[0]?.name,
+      helperText: 'Pokemon',
+    },
+    {
+      id: 2,
+      text: currentData[0]?.firstName,
+      helperText: 'First name',
+    },
+    {
+      id: 3,
+      text: currentData[0]?.lastName,
+      helperText: 'Last name',
+    },
+    {
+      id: 4,
+      text: currentData[0]?.tel,
+      helperText: 'Phone number',
+    },
+    {
+      id: 5,
+      text: currentData[0]?.address,
+      helperText: 'Address',
+    },
+  ];
 
   const handleContinue = () => {
     showMessage({
@@ -80,7 +71,12 @@ function ReviewPokemon() {
   return (
     <AppContainer navHeaderText="Review" processFlowData={processFlowData} secondaryView>
       <div>
-        <Review image={imageSrc} data={data} date={new Date().toDateString()} onClickDone={handleContinue} />
+        <Review
+          image={currentData[0]?.image}
+          data={updateArray}
+          date={new Date().toDateString()}
+          onClickDone={handleContinue}
+        />
       </div>
     </AppContainer>
   );
