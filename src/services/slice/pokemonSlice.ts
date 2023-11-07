@@ -1,11 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import api from '../../api';
+import { Dictionary } from '../../types';
 import { getApiOffsetFromUrl } from '../../utils';
-
-type Dictionary = {
-  [key: string]: any;
-};
 
 interface InitState {
   data: Dictionary;
@@ -21,20 +18,17 @@ const initialState = {
 
 async function fetchPokemonData(pokemon: { url?: string }) {
   if (!pokemon.url) {
-    console.error('Missing or invalid Pokemon URL.');
     return null;
   }
 
   try {
     const response = await fetch(pokemon.url);
     if (!response.ok) {
-      console.error('Failed to fetch Pokemon data:', response.status, response.statusText);
       return null;
     }
 
     return response.json();
   } catch (error) {
-    console.error('An error occurred while fetching Pokemon data:', error);
     return null;
   }
 }

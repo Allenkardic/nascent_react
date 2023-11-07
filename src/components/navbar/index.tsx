@@ -1,11 +1,8 @@
 import { memo } from 'react';
 
-// import { FiBell, FiUser, FiSettings } from 'react-icons/fi';
-
 import { ProgressFlow } from '../../atoms';
 import { HA } from '../../styles';
 import { ProgressBarIProps } from '../progressBar';
-// import { colors, spacing } from '../../utils';
 
 import { Container, ProgressContainer } from './style';
 

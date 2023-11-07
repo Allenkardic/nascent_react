@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import { AppContainer } from '../../atoms';
-import { PokemonCard, Pagination, Button, SearchInput, Loader, BorderedText } from '../../components';
+import { PokemonCard, Pagination, Button, SearchInput, Loader } from '../../components';
 import { PokemonCardIProps } from '../../components/pokemonCard';
 import { useAppDispatch, useAppSelector } from '../../services/redux-hooks';
 import { pokemonRequest, singlPokemonRequest, singlPokemonReset, savedPokemonRequest } from '../../services/slice';

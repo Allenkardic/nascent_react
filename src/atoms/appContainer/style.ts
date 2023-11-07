@@ -30,11 +30,6 @@ export const BackIconContainer = styled.div`
   align-content: center;
   align-self: flex-start;
   cursor: pointer;
-
-  // @media only screen and (max-width: 480px) {
-  //   /* For mobile: */
-  //   width: 20%;
-  // }
 `;
 
 export const MiddleContainer = styled.div`
@@ -45,10 +40,6 @@ export const MiddleContainer = styled.div`
   align-items: center;
   justify-content: center;
   align-content: center;
-  // @media only screen and (max-width: 480px) {
-  //   /* For mobile: */
-  //   width: 60%;
-  // }
 `;
 
 export const LastContainer = styled.div`
@@ -59,8 +50,4 @@ export const LastContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   align-content: center;
-  // @media only screen and (max-width: 480px) {
-  //   /* For mobile: */
-  //   width: 20%;
-  }
 `;

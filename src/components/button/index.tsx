@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { HA, btnHeight } from '../../styles';
+import { H5, btnHeight } from '../../styles';
 import { colors } from '../../utils';
 
 import { Container } from './style';
@@ -36,9 +36,9 @@ function Button({
       btnHt={height}
       secondary={secondary}
       marginBottom={marginBottom}>
-      <HA fSize="14px" ta="center" fw="700" color={secondary ? colors.primary : textColor ? textColor : colors.white}>
+      <H5 ta="center" fw="700" color={secondary ? colors.primary : textColor ? textColor : colors.white}>
         {text}
-      </HA>
+      </H5>
     </Container>
   );
 }

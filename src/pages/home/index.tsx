@@ -7,8 +7,7 @@ import { AppContainer } from '../../atoms';
 import { Button, Input } from '../../components';
 import { useAppDispatch, useAppSelector } from '../../services/redux-hooks';
 import { savedPokemonRequest, savedPokemonReset } from '../../services/slice';
-import { HA } from '../../styles';
-import { spacing, routesPath, colors } from '../../utils';
+import { routesPath } from '../../utils';
 const { POKEMON } = routesPath;
 
 const phoneRegExp =
