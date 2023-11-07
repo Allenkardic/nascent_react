@@ -36,7 +36,7 @@ function HistoryCard({ onClick, items }: HistoryCardIProps) {
       {items?.hasOwnProperty('name') && (
         <Content>
           <H6 color={colors.greyTwo}>Pokemon</H6>
-          <H6 color={colors.robust}>{capitalizeFirstLetter(name)}</H6>
+          <H6 color={colors.robust}>{name !== null ? capitalizeFirstLetter(name) : 'N/A'}</H6>
         </Content>
       )}
       <ProgressContaniner>

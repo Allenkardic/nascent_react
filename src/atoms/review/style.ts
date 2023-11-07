@@ -10,11 +10,13 @@ export const Container = styled.div`
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
+  border: 1px solid ${colors.smokeWhite};
+  border-radius: ${borderRadius.small};
+  padding: ${spacing.xsmall};
 `;
 
 export const Content = styled.div`
   display: flex;
-  //   position: relative;
   width: 100%;
 `;
 
@@ -74,4 +76,13 @@ export const BackIconContainer = styled.div`
   align-content: center;
   cursor: pointer;
   margin-top: ${spacing.xxsmall};
+`;
+
+export const ImageContent = styled.img`
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: ${colors.smokeWhite};
+  margin-top: ${spacing.xsmall};
+  margin-bottom: ${spacing.xxxsmall};
 `;

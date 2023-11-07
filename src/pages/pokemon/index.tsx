@@ -3,21 +3,14 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import { AppContainer } from '../../atoms';
-import { PokemonCard, Pagination, Button, SearchInput, Loader } from '../../components';
+import { PokemonCard, Pagination, Button, SearchInput, Loader, BorderedText } from '../../components';
 import { PokemonCardIProps } from '../../components/pokemonCard';
 import { useAppDispatch, useAppSelector } from '../../services/redux-hooks';
-import {
-  pokemonRequest,
-  pokemonReset,
-  singlPokemonRequest,
-  singlPokemonReset,
-  savedPokemonRequest,
-} from '../../services/slice';
+import { pokemonRequest, singlPokemonRequest, singlPokemonReset, savedPokemonRequest } from '../../services/slice';
 import { Dictionary } from '../../types';
-import { routesPath, updateSavedPokemonListById } from '../../utils';
+import { routesPath, updateSavedPokemonListById, showMessage } from '../../utils';
 
-// import { useGetPokemonByNameQuery } from "../store/pokemon";
-import { Container, BtnContent, FooterContent } from './style';
+import { Container, BtnContent, FooterContent, BtnContainer } from './style';
 const processFlowData = [
   {
     text: 'User details',
@@ -33,7 +26,7 @@ const processFlowData = [
   },
 ];
 
-const { REVIEWPOKEMON } = routesPath;
+const { REVIEWPOKEMON, HISTORY } = routesPath;
 function Pokemon() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -53,7 +46,9 @@ function Pokemon() {
   const savedPokemonState = useAppSelector(state => state.savedPokemon);
 
   useEffect(() => {
-    dispatch(pokemonRequest({ page: page, name: searchValue }));
+    if (searchValue.length <= 0) {
+      dispatch(pokemonRequest({ page: page, name: searchValue }));
+    }
   }, [searchValue, page]);
 
   useEffect(() => {
@@ -114,7 +109,11 @@ function Pokemon() {
   const handleContinue = () => {
     dispatch(
       savedPokemonRequest(
-        updateSavedPokemonListById(savedPokemonState?.data, id, { step: 3, name: selectedPokemon?.text }),
+        updateSavedPokemonListById(savedPokemonState?.data, id, {
+          step: 3,
+          name: selectedPokemon?.text,
+          image: selectedPokemon?.imgSrc,
+        }),
       ),
     );
     navigate(REVIEWPOKEMON, {
@@ -123,6 +122,25 @@ function Pokemon() {
       },
     });
   };
+
+  const handleSave = () => {
+    dispatch(
+      savedPokemonRequest(
+        updateSavedPokemonListById(savedPokemonState?.data, id, {
+          step: 2,
+          name: selectedPokemon?.hasOwnProperty('text') ? selectedPokemon?.text : null,
+          image: selectedPokemon?.hasOwnProperty('imgSrc') ? selectedPokemon?.imgSrc : null,
+        }),
+      ),
+    );
+    showMessage({
+      type: 'success',
+      message: 'Item saved successfully',
+    });
+    navigate(HISTORY);
+  };
+
+  console.log(selectedPokemon, 'selectedPokemon');
 
   return (
     <AppContainer navHeaderText="Select Pokemon" processFlowData={processFlowData}>
@@ -152,11 +170,16 @@ function Pokemon() {
 
           <FooterContent>
             <BtnContent>
-              <Button
-                onClick={handleContinue}
-                text="Continue"
-                disabled={selectedPokemon?.hasOwnProperty('text') ? false : true}
-              />
+              <BtnContainer>
+                <Button onClick={handleSave} text="Save" disabled={false} secondary />
+              </BtnContainer>
+              <BtnContainer>
+                <Button
+                  onClick={handleContinue}
+                  text="Next"
+                  disabled={selectedPokemon?.hasOwnProperty('text') ? false : true}
+                />
+              </BtnContainer>
             </BtnContent>
             <Pagination
               isPreviousActive={pokemonState.data.previous === null ? false : true}

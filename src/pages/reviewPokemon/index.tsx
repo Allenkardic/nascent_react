@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 import { Review, AppContainer } from '../../atoms';
 import { ReviewDataIProps } from '../../atoms/review';
-import { useAppDispatch, useAppSelector } from '../../services/redux-hooks';
+import { useAppSelector } from '../../services/redux-hooks';
 import { routesPath, showMessage } from '../../utils';
 const { HISTORY } = routesPath;
 
@@ -24,24 +24,24 @@ const processFlowData = [
 ];
 
 function ReviewPokemon() {
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const location = useLocation();
 
   const [data, setData] = useState<ReviewDataIProps[]>([]);
+  const [imageSrc, setImageSrc] = useState('');
   const savedPokemonState = useAppSelector(state => state.savedPokemon);
 
   const { id } = location.state;
 
   useLayoutEffect(() => {
     const currentData = savedPokemonState.data.filter(el => el.id === id);
-    const { address, firstName, lastName, name, tel } = currentData[0];
+    const { address, firstName, lastName, name, tel, image } = currentData[0];
     const updateArray = [
       {
         id: 1,
         text: name,
-        helperText: 'Name',
+        helperText: 'Pokemon',
       },
       {
         id: 2,
@@ -64,21 +64,23 @@ function ReviewPokemon() {
         helperText: 'Address',
       },
     ];
+
     setData(updateArray);
+    setImageSrc(image);
   }, []);
 
   const handleContinue = () => {
     showMessage({
       type: 'success',
-      message: 'Item saved successfully',
+      message: 'Completed successfully',
     });
     navigate(HISTORY);
   };
 
   return (
-    <AppContainer navHeaderText="Review" processFlowData={processFlowData}>
+    <AppContainer navHeaderText="Review" processFlowData={processFlowData} secondaryView>
       <div>
-        <Review data={data} date={new Date().toDateString()} onClickDone={handleContinue} />
+        <Review image={imageSrc} data={data} date={new Date().toDateString()} onClickDone={handleContinue} />
       </div>
     </AppContainer>
   );

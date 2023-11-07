@@ -10,16 +10,24 @@ export const Container = styled.div`
 `;
 
 export const BtnContent = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin-top: ${spacing.xxxsmall};
-  width: 30%;
+  padding: 0px ${spacing.xsmall};
   margin-left: auto;
   margin-right: auto;
+`;
+
+export const BtnContainer = styled.div`
+  width: 150px;
 `;
 
 export const FooterContent = styled.div`
   position: fixed;
   bottom: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
   z-index: 1;
   background-color: ${colors.greyFour};
 `;

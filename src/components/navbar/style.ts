@@ -12,8 +12,6 @@ export const Container = styled.div`
   padding: 0px 160px;
   border-bottom: 1px solid ${colors.grey30};
   background-color: transparent;
-  position: sticky;
-  position: webkit-sticky;
   @media (max-width: 768px) {
     padding: 0px ${spacing.xxsmall};
     height: 74px;

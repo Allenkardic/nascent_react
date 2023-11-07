@@ -2,7 +2,7 @@ import { Button } from '../../components';
 import { H4, H5 } from '../../styles';
 import { colors, capitalizeFirstLetter } from '../../utils';
 
-import { Container, DateContainer, Content, DataContainer, DataContent } from './style';
+import { Container, DateContainer, Content, DataContainer, DataContent, ImageContent } from './style';
 
 export interface ReviewDataIProps {
   id: number;
@@ -14,9 +14,10 @@ export interface IProps {
   onClickDone?: () => void;
   data: ReviewDataIProps[];
   date: string;
+  image: string;
 }
 
-function Review({ onClickDone, data, date }: IProps) {
+function Review({ onClickDone, data, date, image }: IProps) {
   return (
     <Container>
       <Content>
@@ -24,6 +25,8 @@ function Review({ onClickDone, data, date }: IProps) {
           <H4 color={colors.grey40}>{date}</H4>
         </DateContainer>
       </Content>
+
+      <ImageContent src={image} />
 
       <DataContent>
         {data?.map((item: ReviewDataIProps, index: number) => (
