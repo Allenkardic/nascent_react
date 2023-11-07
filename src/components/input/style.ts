@@ -46,8 +46,8 @@ export const InputContent = styled.input<StyleProps>`
   font-family: ${ff};
   font-size: 16px;
   height: 100%;
-  padding-left: ${({ type }) => (type === 'tel' ? spacing.mini : spacing.xxxsmall)};
-  width: ${({ type }) => (type === 'tel' ? '90%' : '100%')};
+  padding-left: ${spacing.xxxsmall};
+  width: ${'100%'};
   transition: all 0.3s ease;
   &:focus {
     outline: none;

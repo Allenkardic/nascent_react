@@ -6,7 +6,7 @@ import * as yup from 'yup';
 import { AppContainer } from '../../atoms';
 import { Button, Input } from '../../components';
 import { useAppDispatch, useAppSelector } from '../../services/redux-hooks';
-import { savedPokemonRequest, savedPokemonReset } from '../../services/slice';
+import { savedPokemonRequest } from '../../services/slice';
 import { routesPath } from '../../utils';
 const { POKEMON } = routesPath;
 
@@ -69,7 +69,6 @@ function Home() {
             const { handleChange, values, handleSubmit, errors } = formikProps;
             return (
               <div>
-                <div onClick={() => savedPokemonReset()}>hh</div>
                 <form onSubmit={handleSubmit}>
                   <div>
                     <Input

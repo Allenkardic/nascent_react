@@ -23,7 +23,7 @@ exports[`it renders Home page correctly 1`] = `
   font-family: Medium;
 }
 
-.c18 {
+.c17 {
   font-weight: 700;
   color: #FFFFFF;
   font-size: 16px;
@@ -55,7 +55,7 @@ exports[`it renders Home page correctly 1`] = `
   font-family: Medium;
 }
 
-.c17 {
+.c16 {
   display: flex;
   display: webkit-flex;
   flex-direction: row;
@@ -106,23 +106,6 @@ exports[`it renders Home page correctly 1`] = `
 }
 
 .c15:focus {
-  outline: none;
-}
-
-.c16 {
-  color: #333333;
-  background-color: transparent;
-  border: 0px solid transparent;
-  font-weight: 500;
-  font-family: Medium;
-  font-size: 16px;
-  height: 100%;
-  padding-left: 4px;
-  width: 90%;
-  transition: all 0.3s ease;
-}
-
-.c16:focus {
   outline: none;
 }
 
@@ -192,7 +175,7 @@ exports[`it renders Home page correctly 1`] = `
 }
 
 @media (min-width: 48rem) {
-  .c18 {
+  .c17 {
     font-size: 16px;
   }
 }
@@ -294,9 +277,6 @@ exports[`it renders Home page correctly 1`] = `
       >
         <div>
           <div>
-            <div>
-              hh
-            </div>
             <form>
               <div>
                 <div
@@ -375,7 +355,7 @@ exports[`it renders Home page correctly 1`] = `
                     name="tel"
                   >
                     <input
-                      class="c16"
+                      class="c15"
                       name="tel"
                       placeholder=""
                       type="tel"
@@ -413,446 +393,11 @@ exports[`it renders Home page correctly 1`] = `
                 </div>
                 <button
                   btnht="56px"
-                  class="c17"
+                  class="c16"
                   type="submit"
                 >
                   <div
-                    class="c18"
-                    color="#FFFFFF"
-                    fw="700"
-                    ta="center"
-                  >
-                    Continue
-                  </div>
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`it renders correctly 1`] = `
-.c9 {
-  padding-top: 16px;
-  background-color: #FFFFFF;
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 150px;
-}
-
-.c10 {
-  padding: 0px 16px;
-}
-
-.c1 {
-  font-weight: 400;
-  color: #333333;
-  font-size: 15px;
-  text-align: left;
-  font-family: Medium;
-}
-
-.c18 {
-  font-weight: 700;
-  color: #FFFFFF;
-  font-size: 16px;
-  text-align: center;
-  font-family: Medium;
-}
-
-.c6 {
-  font-weight: 700;
-  color: #090E29;
-  font-size: 13px;
-  text-align: center;
-  font-family: Medium;
-}
-
-.c8 {
-  font-weight: 500;
-  color: #9293a0;
-  font-size: 13px;
-  text-align: center;
-  font-family: Medium;
-}
-
-.c13 {
-  font-weight: 500;
-  color: #4F4F4F;
-  font-size: 13px;
-  text-align: left;
-  font-family: Medium;
-}
-
-.c17 {
-  display: flex;
-  display: webkit-flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  color: #2A3362;
-  background-color: #2A3362;
-  border: 1px solid #2A3362;
-  height: 56px;
-  width: 100%;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  opacity: 1;
-  margin-bottom: 0px;
-}
-
-.c11 {
-  margin-bottom: 24px;
-}
-
-.c14 {
-  display: flex;
-  display: webkit-flex;
-  flex-direction: row;
-  align-items: center;
-  color: #2A3362;
-  background-color: #FFFFFF;
-  border: 1px solid #ececec;
-  height: 56px;
-  width: 100%;
-  padding-left: 8px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-.c15 {
-  color: #333333;
-  background-color: transparent;
-  border: 0px solid transparent;
-  font-weight: 500;
-  font-family: Medium;
-  font-size: 16px;
-  height: 100%;
-  padding-left: 8px;
-  width: 100%;
-  transition: all 0.3s ease;
-}
-
-.c15:focus {
-  outline: none;
-}
-
-.c16 {
-  color: #333333;
-  background-color: transparent;
-  border: 0px solid transparent;
-  font-weight: 500;
-  font-family: Medium;
-  font-size: 16px;
-  height: 100%;
-  padding-left: 4px;
-  width: 90%;
-  transition: all 0.3s ease;
-}
-
-.c16:focus {
-  outline: none;
-}
-
-.c12 {
-  align-self: flex-start;
-  background-color: transparent;
-  margin-bottom: 8px;
-}
-
-.c0 {
-  display: flex;
-  display: webkit-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-  padding: 0px 160px;
-  border-bottom: 1px solid #E9EBF5;
-  background-color: transparent;
-}
-
-.c2 {
-  margin-top: 32px;
-}
-
-.c4 {
-  width: 80px;
-}
-
-.c5 {
-  height: 4px;
-  border-radius: 8px;
-  background-color: #2A3362;
-  margin-bottom: 4px;
-}
-
-.c7 {
-  height: 4px;
-  border-radius: 8px;
-  background-color: #EEEEEE;
-  margin-bottom: 4px;
-}
-
-.c3 {
-  display: flex;
-  display: webkit-flex;
-  flex-direction: row;
-  align-items: center;
-  align-items: webkit-align-center;
-  justify-content: center;
-  column-gap: 16px;
-}
-
-@media only screen and (min-width: 768px) {
-  .c10 {
-    width: 34vw;
-    min-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-@media (min-width: 48rem) {
-  .c1 {
-    font-size: 15px;
-  }
-}
-
-@media (min-width: 48rem) {
-  .c18 {
-    font-size: 16px;
-  }
-}
-
-@media (min-width: 48rem) {
-  .c6 {
-    font-size: 13px;
-  }
-}
-
-@media (min-width: 48rem) {
-  .c8 {
-    font-size: 13px;
-  }
-}
-
-@media (min-width: 48rem) {
-  .c13 {
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 768px) {
-  .c0 {
-    padding: 0px 16px;
-    height: 74px;
-  }
-}
-
-<div>
-  <div
-    class="c0"
-  >
-    <div
-      class="c1"
-    >
-      Home
-    </div>
-    <div
-      class="c2"
-    >
-      <div
-        class="c3"
-      >
-        <div
-          class="c4"
-        >
-          <div
-            class="c5"
-          />
-          <div
-            class="c6"
-            color="#090E29"
-            fw="700"
-            ta="center"
-          >
-            User details
-          </div>
-        </div>
-        <div
-          class="c4"
-        >
-          <div
-            class="c7"
-          />
-          <div
-            class="c8"
-            color="#9293a0"
-            fw="500"
-            ta="center"
-          >
-            Pokemon
-          </div>
-        </div>
-        <div
-          class="c4"
-        >
-          <div
-            class="c7"
-          />
-          <div
-            class="c8"
-            color="#9293a0"
-            fw="500"
-            ta="center"
-          >
-            Review
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div>
-    <div
-      class="c9"
-    >
-      <div
-        class="c10"
-      >
-        <div>
-          <div>
-            <div>
-              hh
-            </div>
-            <form>
-              <div>
-                <div
-                  class="c11"
-                >
-                  <div
-                    class="c12"
-                  >
-                    <div
-                      class="c13"
-                      color="#4F4F4F"
-                      fw="500"
-                      ta="left"
-                    >
-                      First name *
-                    </div>
-                  </div>
-                  <div
-                    class="c14"
-                    name="firstName"
-                  >
-                    <input
-                      class="c15"
-                      name="firstName"
-                      placeholder=" "
-                      type="text"
-                      value=""
-                    />
-                  </div>
-                </div>
-                <div
-                  class="c11"
-                >
-                  <div
-                    class="c12"
-                  >
-                    <div
-                      class="c13"
-                      color="#4F4F4F"
-                      fw="500"
-                      ta="left"
-                    >
-                      Last name *
-                    </div>
-                  </div>
-                  <div
-                    class="c14"
-                    name="lastName"
-                  >
-                    <input
-                      class="c15"
-                      name="lastName"
-                      placeholder=""
-                      type="text"
-                      value=""
-                    />
-                  </div>
-                </div>
-                <div
-                  class="c11"
-                >
-                  <div
-                    class="c12"
-                  >
-                    <div
-                      class="c13"
-                      color="#4F4F4F"
-                      fw="500"
-                      ta="left"
-                    >
-                      Phone number *
-                    </div>
-                  </div>
-                  <div
-                    class="c14"
-                    name="tel"
-                  >
-                    <input
-                      class="c16"
-                      name="tel"
-                      placeholder=""
-                      type="tel"
-                      value=""
-                    />
-                  </div>
-                </div>
-                <div
-                  class="c11"
-                >
-                  <div
-                    class="c12"
-                  >
-                    <div
-                      class="c13"
-                      color="#4F4F4F"
-                      fw="500"
-                      ta="left"
-                    >
-                      Address *
-                    </div>
-                  </div>
-                  <div
-                    class="c14"
-                    name="address"
-                  >
-                    <input
-                      class="c15"
-                      name="address"
-                      placeholder=""
-                      type="text"
-                      value=""
-                    />
-                  </div>
-                </div>
-                <button
-                  btnht="56px"
-                  class="c17"
-                  type="submit"
-                >
-                  <div
-                    class="c18"
+                    class="c17"
                     color="#FFFFFF"
                     fw="700"
                     ta="center"

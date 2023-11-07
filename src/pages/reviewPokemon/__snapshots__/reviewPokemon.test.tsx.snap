@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`it renders correctly 1`] = `
+exports[`it renders ReviewPokeman page correctly 1`] = `
 .c7 {
   padding-top: 16px;
   background-color: #FFFFFF;
