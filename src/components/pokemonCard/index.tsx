@@ -15,7 +15,7 @@ export interface PokemonCardIProps {
 function PokemonCard({ text, imgSrc, isActive, onClick }: PokemonCardIProps) {
   return (
     <Container isActive={isActive} onClick={onClick}>
-      <ImageContent src={imgSrc} isActive={isActive} />
+      <ImageContent src={imgSrc} isActive={isActive} alt="pokemon image" />
       <H7 fw={isActive ? '700' : '500'} ta="center" color={isActive ? colors.white : colors.greyOne}>
         {text}
       </H7>

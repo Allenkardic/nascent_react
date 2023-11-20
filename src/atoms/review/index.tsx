@@ -26,7 +26,7 @@ function Review({ onClickDone, data, date, image }: IProps) {
         </DateContainer>
       </Content>
 
-      <ImageContent src={image} />
+      <ImageContent src={image} alt="pokemon image" />
 
       <DataContent>
         {data?.map((item: ReviewDataIProps, index: number) => (
