@@ -312,11 +312,12 @@ exports[`it renders ReviewPokeman page correctly 1`] = `
                   class="c12"
                   color="#4F4F4F"
                 >
-                  Tue Nov 07 2023
+                  Mon Nov 20 2023
                 </div>
               </div>
             </div>
             <img
+              alt="pokemon image"
               class="c13"
             />
             <div
